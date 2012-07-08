@@ -1,7 +1,7 @@
-�T�C�g�o�^�҈ꗗ
+サイト登録者一覧
 ================
 
-�T�C�g���^�c�����ŁA�T�C�g�̃��[�U�ɑ΂��ĊǗ��҂���̃��b�Z�[�W�𑗕t���邱�Ƃ�����܂��B���[�U�ɑ΂��ă��b�Z�[�W�𑗂�ɂ́A�Ώۂ�e-mail�A�h���X�̃��X�g���K�v�ł��B But it's not nice
+サイトを運営する上で、サイトのユーザに対して管理者からのメッセージを送付することがあります。ユーザに対してメッセージを送るには、対象のe-mailアドレスのリストが必要です。 But it's not nice
 to send unsolicited email without a person's permission, so LocalWiki provides
 an opt-in list.
 
@@ -9,6 +9,8 @@ When users register on your LocalWiki site, they can opt-in to receive email
 updates. Those who opt-in are added to a list, which is available to you,
 the administrator, at this address:
 
+ユーザーがLocalwikiに登録する際、e-mailによる連絡を受けるかどうかの明示的に選択しています。e-mailによる連絡を受けるユーザは、管理者だけが閲覧可能な以下のリストに追加されます。
+
   ``http://<your server's address>/admin/subscribers/``
 
-From here, you can copy this list and import it into your email software.
+このリストを使って、e-mailのアドレス一覧をコピーし、メールアプリケーションでインポートすることが可能です。

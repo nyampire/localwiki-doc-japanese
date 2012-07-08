@@ -1,0 +1,110 @@
+Web サーバ設定
+========================
+
+
+通常インストール
+--------------------
+
+Ubuntuパッケージを利用してLocalwikiをインストールする場合、WebサーバとしてApacheが自動的にインストールされます。Apacheの設定は ``/etc/apache2/sites-enabled/example.com``にあります。サーバ名などを変更したい場合、このファイルを編集してください。
+
+Apacheの設定については、`Apache 公式ドキュメント <http://httpd.apache.org/docs/>`_ を参照してください。
+
+
+開発用サーバ設定
+------------------
+
+If you're doing development or testing, you can run ``localwiki-manage runserver``
+to start the built-in webserver.  Don't use this in production.
+
+開発用、あるいはテスト用としてサーバを起動する場合、ビルトインされている ``localwiki-manage runserver``を利用することも可能です。公開環境でこのサーバを利用することは避けてください。
+
+手動インストール
+--------------------
+
+Localwikiを手動でインストールした場合、 wsgiテンプレートファイルをコピーして編集する必要があります。 ::
+
+  mkdir deploy
+  cp install_config/localwiki_virtualenv.wsgi.template deploy/localwiki.wsgi
+
+``localwiki.wsgi``を開き、Localwikiのインストール先を絶対パスで``VIRTUAL_ENV_PATH``に指定してください。
+
+Then you'll need to create an Apache configuration file.  Here's a
+sample::
+
+次に、Apacheの設定ファイルを作成します。以下がサンプルです。::
+
+  <VirtualHost *:80>
+    ServerAdmin webmaster@example.org
+    ServerName example.org
+    ServerAlias example.org www.example.org
+
+    CustomLog /var/log/apache2/access.log combined
+
+    # gzip content for much faster page loads.
+    <Location />
+        # Insert filter
+        SetOutputFilter DEFLATE
+
+        # Netscape 4.x has some problems...
+        BrowserMatch ^Mozilla/4 gzip-only-text/html
+        # Netscape 4.06-4.08 have some more problems
+        BrowserMatch ^Mozilla/4\.0[678] no-gzip
+        # MSIE masquerades as Netscape, but it is fine
+        # BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+        # NOTE: Due to a bug in mod_setenvif up to Apache 2.0.48
+        # the above regex won't work. You can use the following
+        # workaround to get the desired effect:
+        BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
+    
+        # Don't compress images
+        SetEnvIfNoCase Request_URI \
+        \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+              
+        # Make sure proxies don't deliver the wrong content
+        Header append Vary User-Agent env=!dont-vary
+    </Location>
+
+    # Dont' gzip the user-uploaded content in the media directory.
+    # The content is assumed to be JPEG, PNG, etc, which is already
+    # compressed.
+    <Location /media/>
+        SetEnv no-gzip
+    </Location>
+
+    WSGIDaemonProcess localwiki threads=15 maximum-requests=10000
+    WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi
+    WSGIProcessGroup localwiki
+
+    Alias /robots.txt /path/to/your/env/share/localwiki/static/robots.txt
+    Alias /favicon.ico /path/to/your/env/share/localwiki/static/favicon.ico
+    Alias /media/ /path/to/your/env/share/localwiki/media/
+    Alias /static/ /path/to/your/env/share/localwiki/static/
+
+    # The media directory, which contains user-uploaded content,
+    # should be set to force downloads. This is *extremely* important
+    # for security reasons.
+    <Location /media/>
+            Header set Content-Disposition attachment
+    </Location>
+
+必要な箇所の編集を行います。
+
+``ServerAdmin``, ``ServerName``, and ``ServerAlias`` should be
+self-explanatory.  Read the Apache docs for more info.
+
+
+``ServerAdmin``, ``ServerName``, そして ``ServerAlias`` は、自分自身の値に変更する必要があります。詳細は Apacheのドキュメントを参照してください。
+
+``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- この値は、自分自身の値に変更する必要があります。 ``/path/to/your/deploy/`` を 自身のサーバの``localwiki.wsgi``のファイルがあるディレクトリに変更してください。
+
+In all of the ``Alias ...`` lines you'll need to change
+``/path/to/your/env`` to be the absolute path to the virtualenv where
+you installed LocalWiki.
+
+``Alias ...`` で始まる行に含まれている ``/path/to/your/env``の部分を、自身のサーバのLocalwikiインストール先ディレクトリの絶対パスに変更してください。
+
+After you make you're changes you'll need to restart Apache.
+Please see the `official Apache documentation <http://httpd.apache.org/docs/>`_
+for more on all this.
+
+設定ファイルを編集した後は、Apacheを再起動する必要があります。再起動の詳細な手順については `official Apache documentation <http://httpd.apache.org/docs/>`_ を参照してください。

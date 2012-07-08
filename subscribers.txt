@@ -1,8 +1,7 @@
-Subscriber list
-===============
+サイト登録者一覧
+================
 
-As a website administrator, you often want to send updates or newsletters to
-your users. To do this, you need a list of email addresses. But it's not nice
+サイトを運営する上で、サイトのユーザに対して管理者からのメッセージを送付することがあります。ユーザに対してメッセージを送るには、対象のe-mailアドレスのリストが必要です。 But it's not nice
 to send unsolicited email without a person's permission, so LocalWiki provides
 an opt-in list.
 

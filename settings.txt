@@ -10,18 +10,12 @@ Localwikiの管理は、ブラウザベースの管理画面上で操作を行います。Localwikiがあなた
 
 初期設定時に設定した スーパーユーザとパスワードを、入力フォームに入れてください。スーパーユーザとパスワードを設定しなかった場合は、 ``sudo localwiki-manage createsuperuser`` コマンドで作成が可能です。
 
-When you login, you will see all of the object types that you can modify on the
-left, and a list of recent actions done by administrators on the right(if any).
-
 ログインすると、変更可能なオブジェクト種別の一覧が画面左側に表示されます。(もし実行した操作があれば)これまで行った操作の一覧が画面右側に表示されます。
 
 .. figure:: /_static/images/admin_home.png
 
 ドメイン名とサイト名
 -------------------------
-
-In the admin interface, go to "Sites", click on the site you want to modify,
-enter the domain name and display name and press "Save".
 
 管理画面を表示して "Sites"を選択した後、編集したいウェブサイトを選択してください。ドメイン名、およびブラウザ上に表示したいサイト名を入力して、 "Save"を押します。
 
@@ -37,11 +31,7 @@ enter the domain name and display name and press "Save".
 ``localsettings.py``
 --------------------
 
-Settings particular to your installation go in this file, found at 
-``/usr/share/localwiki/conf/localsettings.py`` on your system. Here are some
-things you may need or wish to modify:
-
-サイト特有の設定を行うには、このファイルを編集します。システム上では、``/usr/share/localwiki/conf/localsettings.py`` に配置されています。必要な項目を編集してください。
+サイト特有の設定を行うには、このファイルを編集します。システム上では、``/usr/share/localwiki/conf/localsettings.py`` に配置されています。必要な項目を編集してください。:
 
 ``OLWIDGET_DEFAULT_OPTIONS``
     マップに関するウィジェットのすべてのデフォルト値を設定します。
@@ -53,9 +43,6 @@ things you may need or wish to modify:
     `Cloudmade <http://developers.cloudmade.com/>`_ を利用するためのAPIキーを入力します。
 
 ``SITE_THEME``
-    The name of the directory under ``themes`` to look for the theme templates
-    and static files.  We'll have more detail on creating a theme soon.
-    
     サイトのテーマを設定します。
     ``theme``ディレクトリの配下にあるテンプレートや、特定のファイル名を指定します。テーマに関しては、別途詳細な内容を追記予定です。
 
@@ -64,9 +51,6 @@ things you may need or wish to modify:
 
 ``LANGUAGE_CODE``
     Localwikiは現在、いくつかの言語に翻訳されています。 利用する言語を変更するには、この項目を烏賊のように変更します。
-    
-    ``en-us`` (for English), ``ja`` (Japanese), ``pt_PT`` (Portuguese), ``ru_RU`` (Russian), ``de_CH`` (German, CH), ``es_AR`` (Spanish, Argentina), ``da_DK`` (Danish).
-    
     (訳注) 日本語に変更する場合、``localsettings.py``のどこかに ``LANGUAGE_CODE = "ja" `` と追記します。
 
 変更した設定を反映させるには、Apacheの再起動が必要です。 たいていのシステムでは、``sudo /etc/init.d/apache2 restart``コマンドで反映することができるはずです。

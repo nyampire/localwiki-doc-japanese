@@ -1,38 +1,35 @@
-Installing
-==========
+インストール方法
+=================
 
-The easiest way to install LocalWiki is by using our Ubuntu package.
+Localwikiのインストールには Ubuntuパッケージを利用するのが最も簡易な方法です。
 
-Installing on Ubuntu
+Ubuntuへのインストール
 --------------------
 
-LocalWiki is available as a prebuilt package for Ubuntu 10.04 LTS or newer.
+Localwikiでは、Ubuntu 10.04 LTS以降のバージョンに対するビルト済みパッケージを提供しています。
 
-Just open a terminal and run these commands::
+インストール先のUbuntuでターミナルを開き、以下のコマンドを入力してください。::
 
    sudo apt-get install python-software-properties
    sudo apt-add-repository ppa:localwiki
    sudo apt-get update
    sudo apt-get install localwiki
 
-That's it! Follow the prompts to configure LocalWiki.
+これで完了です！ 表示されるプロンプトに従って、Localwikiを設定してください。
 
 .. _dev-install:
 
-Installing on other systems
----------------------------
+その他のシステムへのLocalwikiインストール
+----------------------------------------------
 
-.. note:: This installation method should only be used if you can't use
-   the Ubuntu package or if you want to set up a development
-   enviroment.
+.. 注意:: 以下の方法は、Ubuntuパッケージを利用できない場合、あるいは開発環境を設定する場合にのみ利用してください。
 
-See our ``INSTALL`` file for detailed instructions.  The file is also included
-here:
+詳細な手順はこのドキュメントの ``INSTALL`` ファイルに記述されています。以下の場所にも同梱されています。:
 
 .. literalinclude:: ../../INSTALL
 
 
-More info
+追加情報
 ---------
 
-See https://dev.localwiki.org for more information on installation.
+より詳細なインストール方法については https://dev.localwiki.org を参照してください。

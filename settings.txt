@@ -1,40 +1,37 @@
-Settings
+設定方法
 ========
 
-Administration interface
+Localwiki管理画面
 ------------------------
 
-LocalWiki comes with a web-based admin interface.  If LocalWiki is running on
-your machine, it can be found at ``http://localhost/admin/``.  Otherwise,
-you can find the admin interface at ``http://<your server's address>/admin/``
+Localwikiの管理は、ブラウザベースの管理画面上で操作を行います。Localwikiがあなたのマシン上で動作している場合、管理画面には ``http://localhost/admin/`` からアクセスすることが可能です。自分のマシン以外で起動している場合は、 ``http://<your server's address>/admin/`` からアクセスしてください。
 
 .. figure:: /_static/images/admin_login.png
 
-At the prompt, enter your superuser login and password.  If you don't
-have a superuser login and password, you can create one by running
-``sudo localwiki-manage createsuperuser``.
+初期設定時に設定した スーパーユーザとパスワードを、入力フォームに入れてください。スーパーユーザとパスワードを設定しなかった場合は、 ``sudo localwiki-manage createsuperuser`` コマンドで作成が可能です。
 
 When you login, you will see all of the object types that you can modify on the
 left, and a list of recent actions done by administrators on the right(if any).
 
+ログインすると、変更可能なオブジェクト種別の一覧が画面左側に表示されます。(もし実行した操作があれば)これまで行った操作の一覧が画面右側に表示されます。
+
 .. figure:: /_static/images/admin_home.png
 
-
-
-Domain name and site name
+ドメイン名とサイト名
 -------------------------
 
 In the admin interface, go to "Sites", click on the site you want to modify,
 enter the domain name and display name and press "Save".
 
+管理画面を表示して "Sites"を選択した後、編集したいウェブサイトを選択してください。ドメイン名、およびブラウザ上に表示したいサイト名を入力して、 "Save"を押します。
+
 .. figure:: /_static/images/admin_site.png
 
 
-Setting the default map location
+マップ表示位置の初期設定
 --------------------------------
 
-You'll need to edit your ``localsettings.py`` file and set the default
-map location.  See the ``localsettings.py`` section below.
+マップを表示させる際のデフォルトの表示位置を変更するには、 ``localsettings.py`` を修正します。 ``localsettings.py`` の以下の箇所を参考にしてください。
 
 
 ``localsettings.py``
@@ -44,32 +41,32 @@ Settings particular to your installation go in this file, found at
 ``/usr/share/localwiki/conf/localsettings.py`` on your system. Here are some
 things you may need or wish to modify:
 
+サイト特有の設定を行うには、このファイルを編集します。システム上では、``/usr/share/localwiki/conf/localsettings.py`` に配置されています。必要な項目を編集してください。
+
 ``OLWIDGET_DEFAULT_OPTIONS``
-    Defaults for all map widgets, including default location, theme, navigation
-    controls, colors, etc.
+    マップに関するウィジェットのすべてのデフォルト値を設定します。
+    例えば、初期表示の位置、テーマ、操作項目、色彩などが該当します。
     
-    You will want to set the the **default map location** on your localwiki.
-    Simply change ``default_lat`` and ``default_lon``.  Use this tool to look it
-    up: http://www.getlatlon.com/
+    Localwiki上でマップを表示させる際に**最初に表示される位置**を設定するには、``default_lat`` と ``default_lon``項目を修正してください。緯度と経度を調べるには http://www.getlatlon.com/ などが利用可能です。
 
 ``CLOUDMADE_API_KEY``
-    Your developer API key from `Cloudmade <http://developers.cloudmade.com/>`_
+    `Cloudmade <http://developers.cloudmade.com/>`_ を利用するためのAPIキーを入力します。
 
 ``SITE_THEME``
     The name of the directory under ``themes`` to look for the theme templates
     and static files.  We'll have more detail on creating a theme soon.
+    
+    サイトのテーマを設定します。
+    ``theme``ディレクトリの配下にあるテンプレートや、特定のファイル名を指定します。テーマに関しては、別途詳細な内容を追記予定です。
 
 ``EMBED_ALLOWED_URLS``
-    This is a list of regular expressions used to restrict what kinds of
-    content users can embed.  If an embedded URL does not pass any of the
-    regular expressions in this list, it will not be shown.
+    ユーザが埋め込み可能なコンテンツの種別を正規表現で表現したものを、リストとして記述します。ユーザが記述したURLが、この項目の表現のいづれにもマッチしなかった場合、URLは表示されません。
 
 ``LANGUAGE_CODE``
-    LocalWiki is fully localized and is currently translated into a
-    number of languages.  To change your instance's language, set this
-    to one of: ``en-us`` (for English), ``ja`` (Japanese),
-    ``pt_PT`` (Portuguese), ``ru_RU`` (Russian), ``de_CH`` (German, CH),
-    ``es_AR`` (Spanish, Argentina), ``da_DK`` (Danish).
+    Localwikiは現在、いくつかの言語に翻訳されています。 利用する言語を変更するには、この項目を烏賊のように変更します。
+    
+    ``en-us`` (for English), ``ja`` (Japanese), ``pt_PT`` (Portuguese), ``ru_RU`` (Russian), ``de_CH`` (German, CH), ``es_AR`` (Spanish, Argentina), ``da_DK`` (Danish).
+    
+    (訳注) 日本語に変更する場合、``localsettings.py``のどこかに ``LANGUAGE_CODE = "ja" `` と追記します。
 
-After changing settings you'll need to restart Apache.  On most systems
-you can do this by running ``sudo /etc/init.d/apache2 restart``.
+変更した設定を反映させるには、Apacheの再起動が必要です。 たいていのシステムでは、``sudo /etc/init.d/apache2 restart``コマンドで反映することができるはずです。

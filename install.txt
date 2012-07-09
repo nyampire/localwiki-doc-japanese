@@ -1,35 +1,35 @@
-�C���X�g�[�����@
+インストール方法
 =================
 
-Localwiki�̃C���X�g�[���ɂ� Ubuntu�p�b�P�[�W�𗘗p����̂��ł��ȈՂȕ��@�ł��B
+Localwikiのインストールには Ubuntuパッケージを利用するのが最も簡易な方法です。
 
-Ubuntu�ւ̃C���X�g�[��
+Ubuntuへのインストール
 --------------------
 
-Localwiki�ł́AUbuntu 10.04 LTS�ȍ~�̃o�[�W�����ɑ΂���r���g�ς݃p�b�P�[�W��񋟂��Ă��܂��B
+Localwikiでは、Ubuntu 10.04 LTS以降のバージョンに対するビルト済みパッケージを提供しています。
 
-�C���X�g�[�����Ubuntu�Ń^�[�~�i�����J���A�ȉ��̃R�}���h����͂��Ă��������B::
+インストール先のUbuntuでターミナルを開き、以下のコマンドを入力してください。::
 
    sudo apt-get install python-software-properties
    sudo apt-add-repository ppa:localwiki
    sudo apt-get update
    sudo apt-get install localwiki
 
-����Ŋ����ł��I �\�������v�����v�g�ɏ]���āALocalwiki��ݒ肵�Ă��������B
+これで完了です！ 表示されるプロンプトに従って、Localwikiを設定してください。
 
 .. _dev-install:
 
-���̑��̃V�X�e���ւ�Localwiki�C���X�g�[��
+その他のシステムへのLocalwikiインストール
 ----------------------------------------------
 
-.. ����:: �ȉ��̕��@�́AUbuntu�p�b�P�[�W�𗘗p�ł��Ȃ��ꍇ�A���邢�͊J������ݒ肷��ꍇ�ɂ̂ݗ��p���Ă��������B
+.. 注意:: 以下の方法は、Ubuntuパッケージを利用できない場合、あるいは開発環境を設定する場合にのみ利用してください。
 
-�ڍׂȎ菇�͂��̃h�L�������g�� ``INSTALL`` �t�@�C���ɋL�q����Ă��܂��B�ȉ��̏ꏊ�ɂ���������Ă��܂��B:
+詳細な手順はこのドキュメントの ``INSTALL`` ファイルに記述されています。以下の場所にも同梱されています。:
 
 .. literalinclude:: ../../INSTALL
 
 
-�ǉ����
+追加情報
 ---------
 
-���ڍׂȃC���X�g�[�����@�ɂ��Ă� https://dev.localwiki.org ���Q�Ƃ��Ă��������B
+より詳細なインストール方法については https://dev.localwiki.org を参照してください。

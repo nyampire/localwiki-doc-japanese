@@ -1,56 +1,56 @@
-�ݒ���@
+設定方法
 ========
 
-Localwiki�Ǘ����
+Localwiki管理画面
 ------------------------
 
-Localwiki�̊Ǘ��́A�u���E�U�x�[�X�̊Ǘ���ʏ�ő�����s���܂��BLocalwiki�����Ȃ��̃}�V����œ��삵�Ă���ꍇ�A�Ǘ���ʂɂ� ``http://localhost/admin/`` ����A�N�Z�X���邱�Ƃ��\�ł��B�����̃}�V���ȊO�ŋN�����Ă���ꍇ�́A ``http://<your server's address>/admin/`` ����A�N�Z�X���Ă��������B
+Localwikiの管理は、ブラウザベースの管理画面上で操作を行います。Localwikiがあなたのマシン上で動作している場合、管理画面には ``http://localhost/admin/`` からアクセスすることが可能です。自分のマシン以外で起動している場合は、 ``http://<your server's address>/admin/`` からアクセスしてください。
 
 .. figure:: /_static/images/admin_login.png
 
-�����ݒ莞�ɐݒ肵�� �X�[�p�[���[�U�ƃp�X���[�h���A���̓t�H�[���ɓ���Ă��������B�X�[�p�[���[�U�ƃp�X���[�h��ݒ肵�Ȃ������ꍇ�́A ``sudo localwiki-manage createsuperuser`` �R�}���h�ō쐬���\�ł��B
+初期設定時に設定した スーパーユーザとパスワードを、入力フォームに入れてください。スーパーユーザとパスワードを設定しなかった場合は、 ``sudo localwiki-manage createsuperuser`` コマンドで作成が可能です。
 
-���O�C������ƁA�ύX�\�ȃI�u�W�F�N�g��ʂ̈ꗗ����ʍ����ɕ\������܂��B(�������s�������삪�����)����܂ōs��������̈ꗗ����ʉE���ɕ\������܂��B
+ログインすると、変更可能なオブジェクト種別の一覧が画面左側に表示されます。(もし実行した操作があれば)これまで行った操作の一覧が画面右側に表示されます。
 
 .. figure:: /_static/images/admin_home.png
 
-�h���C�����ƃT�C�g��
+ドメイン名とサイト名
 -------------------------
 
-�Ǘ���ʂ�\������ "Sites"��I��������A�ҏW�������E�F�u�T�C�g��I�����Ă��������B�h���C�����A����уu���E�U��ɕ\���������T�C�g������͂��āA "Save"�������܂��B
+管理画面を表示して "Sites"を選択した後、編集したいウェブサイトを選択してください。ドメイン名、およびブラウザ上に表示したいサイト名を入力して、 "Save"を押します。
 
 .. figure:: /_static/images/admin_site.png
 
 
-�}�b�v�\���ʒu�̏����ݒ�
+マップ表示位置の初期設定
 --------------------------------
 
-�}�b�v��\��������ۂ̃f�t�H���g�̕\���ʒu��ύX����ɂ́A ``localsettings.py`` ���C�����܂��B ``localsettings.py`` �̈ȉ��̉ӏ����Q�l�ɂ��Ă��������B
+マップを表示させる際のデフォルトの表示位置を変更するには、 ``localsettings.py`` を修正します。 ``localsettings.py`` の以下の箇所を参考にしてください。
 
 
 ``localsettings.py``
 --------------------
 
-�T�C�g���L�̐ݒ���s���ɂ́A���̃t�@�C����ҏW���܂��B�V�X�e����ł́A``/usr/share/localwiki/conf/localsettings.py`` �ɔz�u����Ă��܂��B�K�v�ȍ��ڂ�ҏW���Ă��������B:
+サイト特有の設定を行うには、このファイルを編集します。システム上では、``/usr/share/localwiki/conf/localsettings.py`` に配置されています。必要な項目を編集してください。:
 
 ``OLWIDGET_DEFAULT_OPTIONS``
-    �}�b�v�Ɋւ���E�B�W�F�b�g�̂��ׂẴf�t�H���g�l��ݒ肵�܂��B
-    �Ⴆ�΁A�����\���̈ʒu�A�e�[�}�A���썀�ځA�F�ʂȂǂ��Y�����܂��B
+    マップに関するウィジェットのすべてのデフォルト値を設定します。
+    例えば、初期表示の位置、テーマ、操作項目、色彩などが該当します。
     
-    Localwiki��Ń}�b�v��\��������ۂ�**�ŏ��ɕ\�������ʒu**��ݒ肷��ɂ́A``default_lat`` �� ``default_lon``���ڂ��C�����Ă��������B�ܓx�ƌo�x�𒲂ׂ�ɂ� http://www.getlatlon.com/ �Ȃǂ����p�\�ł��B
+    Localwiki上でマップを表示させる際に**最初に表示される位置**を設定するには、``default_lat`` と ``default_lon``項目を修正してください。緯度と経度を調べるには http://www.getlatlon.com/ などが利用可能です。
 
 ``CLOUDMADE_API_KEY``
-    `Cloudmade <http://developers.cloudmade.com/>`_ �𗘗p���邽�߂�API�L�[����͂��܂��B
+    `Cloudmade <http://developers.cloudmade.com/>`_ を利用するためのAPIキーを入力します。
 
 ``SITE_THEME``
-    �T�C�g�̃e�[�}��ݒ肵�܂��B
-    ``theme``�f�B���N�g���̔z���ɂ���e���v���[�g��A����̃t�@�C�������w�肵�܂��B�e�[�}�Ɋւ��ẮA�ʓr�ڍׂȓ��e��ǋL�\��ł��B
+    サイトのテーマを設定します。
+    ``theme``ディレクトリの配下にあるテンプレートや、特定のファイル名を指定します。テーマに関しては、別途詳細な内容を追記予定です。
 
 ``EMBED_ALLOWED_URLS``
-    ���[�U�����ߍ��݉\�ȃR���e���c�̎�ʂ𐳋K�\���ŕ\���������̂��A���X�g�Ƃ��ċL�q���܂��B���[�U���L�q����URL���A���̍��ڂ̕\���̂��Â�ɂ��}�b�`���Ȃ������ꍇ�AURL�͕\������܂���B
+    ユーザが埋め込み可能なコンテンツの種別を正規表現で表現したものを、リストとして記述します。ユーザが記述したURLが、この項目の表現のいづれにもマッチしなかった場合、URLは表示されません。
 
 ``LANGUAGE_CODE``
-    Localwiki�͌��݁A�������̌���ɖ|�󂳂�Ă��܂��B ���p���錾���ύX����ɂ́A���̍��ڂ��G���̂悤�ɕύX���܂��B
-    (��) ���{��ɕύX����ꍇ�A``localsettings.py``�̂ǂ����� ``LANGUAGE_CODE = "ja" `` �ƒǋL���܂��B
+    Localwikiは現在、いくつかの言語に翻訳されています。 利用する言語を変更するには、この項目を烏賊のように変更します。
+    (訳注) 日本語に変更する場合、``localsettings.py``のどこかに ``LANGUAGE_CODE = "ja" `` と追記します。
 
-�ύX�����ݒ�𔽉f������ɂ́AApache�̍ċN�����K�v�ł��B �����Ă��̃V�X�e���ł́A``sudo /etc/init.d/apache2 restart``�R�}���h�Ŕ��f���邱�Ƃ��ł���͂��ł��B
+変更した設定を反映させるには、Apacheの再起動が必要です。 たいていのシステムでは、``sudo /etc/init.d/apache2 restart``コマンドで反映することができるはずです。

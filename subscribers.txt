@@ -1,15 +1,9 @@
 サイト登録者一覧
 ================
 
-サイトを運営する上で、サイトのユーザに対して管理者からのメッセージを送付することがあります。ユーザに対してメッセージを送るには、対象のe-mailアドレスのリストが必要です。 But it's not nice
-to send unsolicited email without a person's permission, so LocalWiki provides
-an opt-in list.
+サイトを運営する上で、サイトのユーザに対して管理者からのメッセージを送付することがあります。ユーザに対してメッセージを送るには、対象のe-mailアドレスのリストが必要です。しかし、ユーザの了承ないままメッセージを送付することはあまり良いことではありません。そのため、Localwikiでは明示的に了承を得ているユーザを一覧として提供しています。
 
-When users register on your LocalWiki site, they can opt-in to receive email
-updates. Those who opt-in are added to a list, which is available to you,
-the administrator, at this address:
-
-ユーザーがLocalwikiに登録する際、e-mailによる連絡を受けるかどうかの明示的に選択しています。e-mailによる連絡を受けるユーザは、管理者だけが閲覧可能な以下のリストに追加されます。
+ユーザーがLocalwikiに登録する際、e-mailによる連絡を受けるかどうかの明示的に選択しています。e-mailによる連絡を受けるユーザは、管理者だけが閲覧可能な以下のリストに追加されます。:
 
   ``http://<your server's address>/admin/subscribers/``
 

@@ -11,9 +11,6 @@ Apacheの設定については、`Apache 公式ドキュメント <http://httpd.
 開発用サーバ設定
 ------------------
 
-If you're doing development or testing, you can run ``localwiki-manage runserver``
-to start the built-in webserver.  Don't use this in production.
-
 開発用、あるいはテスト用としてサーバを起動する場合、ビルトインされている ``localwiki-manage runserver``を利用することも可能です。公開環境でこのサーバを利用することは避けてください。
 
 手動インストール
@@ -25,9 +22,6 @@ Localwikiを手動でインストールした場合、 wsgiテンプレートフ
   cp install_config/localwiki_virtualenv.wsgi.template deploy/localwiki.wsgi
 
 ``localwiki.wsgi``を開き、Localwikiのインストール先を絶対パスで``VIRTUAL_ENV_PATH``に指定してください。
-
-Then you'll need to create an Apache configuration file.  Here's a
-sample::
 
 次に、Apacheの設定ファイルを作成します。以下がサンプルです。::
 
@@ -87,22 +81,10 @@ sample::
 
 必要な箇所の編集を行います。
 
-``ServerAdmin``, ``ServerName``, and ``ServerAlias`` should be
-self-explanatory.  Read the Apache docs for more info.
-
-
 ``ServerAdmin``, ``ServerName``, そして ``ServerAlias`` は、自分自身の値に変更する必要があります。詳細は Apacheのドキュメントを参照してください。
 
 ``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- この値は、自分自身の値に変更する必要があります。 ``/path/to/your/deploy/`` を 自身のサーバの``localwiki.wsgi``のファイルがあるディレクトリに変更してください。
 
-In all of the ``Alias ...`` lines you'll need to change
-``/path/to/your/env`` to be the absolute path to the virtualenv where
-you installed LocalWiki.
-
 ``Alias ...`` で始まる行に含まれている ``/path/to/your/env``の部分を、自身のサーバのLocalwikiインストール先ディレクトリの絶対パスに変更してください。
-
-After you make you're changes you'll need to restart Apache.
-Please see the `official Apache documentation <http://httpd.apache.org/docs/>`_
-for more on all this.
 
 設定ファイルを編集した後は、Apacheを再起動する必要があります。再起動の詳細な手順については `official Apache documentation <http://httpd.apache.org/docs/>`_ を参照してください。

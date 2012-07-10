@@ -3,8 +3,6 @@
 
 Localwikiの新規バージョンがリリースされたときは、更新をお勧めします。Ubuntuのパッケージを利用している場合、更新方法は非常に単純です。
 
-Run these commands to upgrade::
-
 Ubuntuパッケージを使ってLocalwikiを更新する場合は、以下のコマンドを入力します。::
 
    sudo apt-get update

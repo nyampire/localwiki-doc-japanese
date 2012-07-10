@@ -1,37 +1,37 @@
-Web ƒT[ƒoİ’è
+Web ã‚µãƒ¼ãƒè¨­å®š
 ========================
 
 
-’ÊíƒCƒ“ƒXƒg[ƒ‹
+é€šå¸¸ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 --------------------
 
-UbuntuƒpƒbƒP[ƒW‚ğ—˜—p‚µ‚ÄLocalwiki‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚éê‡AWebƒT[ƒo‚Æ‚µ‚ÄApache‚ª©“®“I‚ÉƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚Ü‚·BApache‚Ìİ’è‚Í ``/etc/apache2/sites-enabled/example.com``‚É‚ ‚è‚Ü‚·BƒT[ƒo–¼‚È‚Ç‚ğ•ÏX‚µ‚½‚¢ê‡A‚±‚Ìƒtƒ@ƒCƒ‹‚ğ•ÒW‚µ‚Ä‚­‚¾‚³‚¢B
+Ubuntuãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’åˆ©ç”¨ã—ã¦Localwikiã‚’ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹å ´åˆã€Webã‚µãƒ¼ãƒã¨ã—ã¦ApacheãŒè‡ªå‹•çš„ã«ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã•ã‚Œã¾ã™ã€‚Apacheã®è¨­å®šã¯ ``/etc/apache2/sites-enabled/example.com``ã«ã‚ã‚Šã¾ã™ã€‚ã‚µãƒ¼ãƒåãªã©ã‚’å¤‰æ›´ã—ãŸã„å ´åˆã€ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç·¨é›†ã—ã¦ãã ã•ã„ã€‚
 
-Apache‚Ìİ’è‚É‚Â‚¢‚Ä‚ÍA`Apache Œö®ƒhƒLƒ…ƒƒ“ƒg <http://httpd.apache.org/docs/>`_ ‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+Apacheã®è¨­å®šã«ã¤ã„ã¦ã¯ã€`Apache å…¬å¼ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ <http://httpd.apache.org/docs/>`_ ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
 
 
-ŠJ”­—pƒT[ƒoİ’è
+é–‹ç™ºç”¨ã‚µãƒ¼ãƒè¨­å®š
 ------------------
 
 If you're doing development or testing, you can run ``localwiki-manage runserver``
 to start the built-in webserver.  Don't use this in production.
 
-ŠJ”­—pA‚ ‚é‚¢‚ÍƒeƒXƒg—p‚Æ‚µ‚ÄƒT[ƒo‚ğ‹N“®‚·‚éê‡Aƒrƒ‹ƒgƒCƒ“‚³‚ê‚Ä‚¢‚é ``localwiki-manage runserver``‚ğ—˜—p‚·‚é‚±‚Æ‚à‰Â”\‚Å‚·BŒöŠJŠÂ‹«‚Å‚±‚ÌƒT[ƒo‚ğ—˜—p‚·‚é‚±‚Æ‚Í”ğ‚¯‚Ä‚­‚¾‚³‚¢B
+é–‹ç™ºç”¨ã€ã‚ã‚‹ã„ã¯ãƒ†ã‚¹ãƒˆç”¨ã¨ã—ã¦ã‚µãƒ¼ãƒã‚’èµ·å‹•ã™ã‚‹å ´åˆã€ãƒ“ãƒ«ãƒˆã‚¤ãƒ³ã•ã‚Œã¦ã„ã‚‹ ``localwiki-manage runserver``ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã‚‚å¯èƒ½ã§ã™ã€‚å…¬é–‹ç’°å¢ƒã§ã“ã®ã‚µãƒ¼ãƒã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã¯é¿ã‘ã¦ãã ã•ã„ã€‚
 
-è“®ƒCƒ“ƒXƒg[ƒ‹
+æ‰‹å‹•ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 --------------------
 
-Localwiki‚ğè“®‚ÅƒCƒ“ƒXƒg[ƒ‹‚µ‚½ê‡A wsgiƒeƒ“ƒvƒŒ[ƒgƒtƒ@ƒCƒ‹‚ğƒRƒs[‚µ‚Ä•ÒW‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B ::
+Localwikiã‚’æ‰‹å‹•ã§ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã—ãŸå ´åˆã€ wsgiãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ç·¨é›†ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚ ::
 
   mkdir deploy
   cp install_config/localwiki_virtualenv.wsgi.template deploy/localwiki.wsgi
 
-``localwiki.wsgi``‚ğŠJ‚«ALocalwiki‚ÌƒCƒ“ƒXƒg[ƒ‹æ‚ğâ‘ÎƒpƒX‚Å``VIRTUAL_ENV_PATH``‚Éw’è‚µ‚Ä‚­‚¾‚³‚¢B
+``localwiki.wsgi``ã‚’é–‹ãã€Localwikiã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å…ˆã‚’çµ¶å¯¾ãƒ‘ã‚¹ã§``VIRTUAL_ENV_PATH``ã«æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
 
 Then you'll need to create an Apache configuration file.  Here's a
 sample::
 
-Ÿ‚ÉAApache‚Ìİ’èƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚·BˆÈ‰º‚ªƒTƒ“ƒvƒ‹‚Å‚·B::
+æ¬¡ã«ã€Apacheã®è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã™ã€‚ä»¥ä¸‹ãŒã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚::
 
   <VirtualHost *:80>
     ServerAdmin webmaster@example.org
@@ -87,24 +87,24 @@ sample::
             Header set Content-Disposition attachment
     </Location>
 
-•K—v‚È‰ÓŠ‚Ì•ÒW‚ğs‚¢‚Ü‚·B
+å¿…è¦ãªç®‡æ‰€ã®ç·¨é›†ã‚’è¡Œã„ã¾ã™ã€‚
 
 ``ServerAdmin``, ``ServerName``, and ``ServerAlias`` should be
 self-explanatory.  Read the Apache docs for more info.
 
 
-``ServerAdmin``, ``ServerName``, ‚»‚µ‚Ä ``ServerAlias`` ‚ÍA©•ª©g‚Ì’l‚É•ÏX‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BÚ×‚Í Apache‚ÌƒhƒLƒ…ƒƒ“ƒg‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+``ServerAdmin``, ``ServerName``, ãã—ã¦ ``ServerAlias`` ã¯ã€è‡ªåˆ†è‡ªèº«ã®å€¤ã«å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚è©³ç´°ã¯ Apacheã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
 
-``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- ‚±‚Ì’l‚ÍA©•ª©g‚Ì’l‚É•ÏX‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B ``/path/to/your/deploy/`` ‚ğ ©g‚ÌƒT[ƒo‚Ì``localwiki.wsgi``‚Ìƒtƒ@ƒCƒ‹‚ª‚ ‚éƒfƒBƒŒƒNƒgƒŠ‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- ã“ã®å€¤ã¯ã€è‡ªåˆ†è‡ªèº«ã®å€¤ã«å¤‰æ›´ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚ ``/path/to/your/deploy/`` ã‚’ è‡ªèº«ã®ã‚µãƒ¼ãƒã®``localwiki.wsgi``ã®ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å¤‰æ›´ã—ã¦ãã ã•ã„ã€‚
 
 In all of the ``Alias ...`` lines you'll need to change
 ``/path/to/your/env`` to be the absolute path to the virtualenv where
 you installed LocalWiki.
 
-``Alias ...`` ‚Ån‚Ü‚és‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚é ``/path/to/your/env``‚Ì•”•ª‚ğA©g‚ÌƒT[ƒo‚ÌLocalwikiƒCƒ“ƒXƒg[ƒ‹æƒfƒBƒŒƒNƒgƒŠ‚Ìâ‘ÎƒpƒX‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+``Alias ...`` ã§å§‹ã¾ã‚‹è¡Œã«å«ã¾ã‚Œã¦ã„ã‚‹ ``/path/to/your/env``ã®éƒ¨åˆ†ã‚’ã€è‡ªèº«ã®ã‚µãƒ¼ãƒã®Localwikiã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®çµ¶å¯¾ãƒ‘ã‚¹ã«å¤‰æ›´ã—ã¦ãã ã•ã„ã€‚
 
 After you make you're changes you'll need to restart Apache.
 Please see the `official Apache documentation <http://httpd.apache.org/docs/>`_
 for more on all this.
 
-İ’èƒtƒ@ƒCƒ‹‚ğ•ÒW‚µ‚½Œã‚ÍAApache‚ğÄ‹N“®‚·‚é•K—v‚ª‚ ‚è‚Ü‚·BÄ‹N“®‚ÌÚ×‚Èè‡‚É‚Â‚¢‚Ä‚Í `official Apache documentation <http://httpd.apache.org/docs/>`_ ‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç·¨é›†ã—ãŸå¾Œã¯ã€Apacheã‚’å†èµ·å‹•ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚å†èµ·å‹•ã®è©³ç´°ãªæ‰‹é †ã«ã¤ã„ã¦ã¯ `official Apache documentation <http://httpd.apache.org/docs/>`_ ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚

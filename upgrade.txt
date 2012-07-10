@@ -1,17 +1,16 @@
-Upgrading
-=========
+アップグレード
+==============
 
-When a new version of LocalWiki is released, you should upgrade to it. If you
-installed using the Ubuntu packages, then upgrading to a new release is very
-simple.
+Localwikiの新規バージョンがリリースされたときは、更新をお勧めします。Ubuntuのパッケージを利用している場合、更新方法は非常に単純です。
 
 Run these commands to upgrade::
+
+Ubuntuパッケージを使ってLocalwikiを更新する場合は、以下のコマンドを入力します。::
 
    sudo apt-get update
    sudo apt-get upgrade
    
-This will upgrade all of your packages, including LocalWiki. All of your data
-will be preserved during the upgrade.
+Localwikiを含めて、あなたのシステムで利用しているすべてのパッケージが更新されます。パッケージを更新している間も、あなたのデータは保存されます。
 
-If you installed manually, read the upgrade instructions here:
+手動でインストールを行った場合は、以下の更新手順に従ってください。:
 http://dev.localwiki.org/Upgrading_LocalWiki

@@ -1,65 +1,48 @@
-Customizing your localwiki's appearance
-=======================================
+localwikiの外観カスタマイズ
+===========================
 
-It's possible to completely customize the appearance and some of the
-behavior of the LocalWiki software without having to dig into the
-underlying code.  You can do this by customizing the site's CSS, the
-site's templates, and by creating entirely new themes.
+Localwikiはサイトの外観や挙動の一部を変更することが可能です。その際、ソースコードまで掘り下げて変更する必要はありません。変更は、サイトのCSSや、外観のテンプレート、あるいは全く新規にテーマを作成することで行います。
 
-We're hoping to make the process of altering templates and CSS a bit
-less technical at some point.  For now you'll need to be comfortable
-with moving things around on a server, editing files and have some
-knowledge of CSS and HTML.
+テンプレートやCSSの修正という手順は、ソースコードを改変するよりも多少技術的な敷居が低いと考えています。ただし、操作するにはサーバ上での設定ファイル修正方法や、HTML・CSSについての若干の知識が必要です。
 
-.. note:: If you're a developer and have been playing around, make sure
-   you have set ``DEBUG`` to ``False`` in ``localsettings.py``,
+
+.. 注意点:: もしあなたが開発者で、既に上記の知識に慣れ親しんでいる場合、``localsettings.py``の``DEBUG``項目を``False``に変更してください。
    otherwise you won't see static media show up when using
    ``localwiki-manage runsever``.
 
 
-Template files
---------------
+テンプレートファイル
+--------------------
 
-The LocalWiki software has the concept of a *template*.  A template is
-a text file on the server running the LocalWiki software, and it's used to
-generate pages throughout the site.
+Localwikiには *テンプレート*という概念があります。テンプレートとは、Localwikiが稼働しているサーバ上に配置されたテキストファイルで、サイト内のページを生成するために利用されます。
 
-.. note:: These *template files* are very different from "Template pages" on
-   the wiki. Template pages on the wiki are for creating new pages more
-   easily. *Template files* on the server are used by the LocalWiki software to
-   generate the site itself.
+
+.. 注意:: これらの *テンプレートファイル*は、Wiki上の "テンプレートページ"とは異なります。Wiki上のテンプレートページは、ページの新規作成の手間を削減するために用意されています。サーバ上に配置されている *テンプレートファイル*とは、Localwikiソフトウェアがサイト自体を生成するために利用するファイルです。
 
 These templates are simply
-`Django templates <https://docs.djangoproject.com/en/dev/topics/templates/>`_
-and support the full range of capabilities of the Django templating
-language.  Check out the `Django template documentation <https://docs.djangoproject.com/en/dev/topics/templates/>`_
-for everything that's possible with the templates.  You don't need to read the
-template documentation to make simple customizations, though.
+これらのテンプレートファイルは純粋に
+`Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_
+であり、Djangoテンプレート言語をすべてサポートしています。テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。ただし、細かい修正であればテンプレートドキュメントを読むまでもないでしょう。
 
-The global template directory is ``/usr/share/localwiki/templates``, or
-``env/share/localwiki/templates`` (for manual installations).
+グローバルのテンプレートディレクトリは``/usr/share/localwiki/templates``、あるいは ``env/share/localwiki/templates`` (手動インストール時)です。
 
-
-Themes
+テーマ
 ------
 
-A *theme* is a collection of templates and static assets that together control
-the look of the entire site.
+*テーマ*はテンプレートファイルと静的なアセットファイルを一揃えのセットにしたもので、サイト全体の外観を左右します。
 
 Each theme is simply a directory containing:
 
-* A directory with templates (``templates/``)
-* A directory with static assets (``assets/``) like CSS and images.
+それぞれのテーマはディレクトリに分けられ、以下のファイルが配置されます:
+
+* テンプレート用ディレクトリ (``templates/``)
+* 静的なアセット設定ディレクトリ (``assets/``) 例えば、CSSファイルや画像ファイル等
+
+グローバルのテーマディレクトリは``/usr/share/localwiki/themes``、あるいは ``env/share/localwiki/themes`` (手動インストール時)です。 *注意*:もしlocalwiki-0.2-beta-12を利用している場合は、上記のディレクトリを手動で作成する必要があります。
 
 
-The global themes directory is ``/usr/share/localwiki/themes``, or
-``env/share/localwiki/themes`` (for manual installations).  *NOTE*: If
-you are running localwiki-0.2-beta-12 you may have to create this
-directory by hand.
-
-
-Tutorial
---------
+チュートリアル
+--------------
 
 The theme system is best explained through a few simple examples.
 

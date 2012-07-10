@@ -44,42 +44,36 @@ Each theme is simply a directory containing:
 チュートリアル
 --------------
 
-The theme system is best explained through a few simple examples.
+テーマの仕組みを解説するために、いくつか例をあげて説明します。
 
 .. _example1:
 
-Example 1: Adding a logo
+例 1: ロゴ画像の追加
 ~~~~~~~~~~~~~~~~~~~~~~~~
-Let's add a logo to our site.  Because this is just a simple change,
-making an new theme is overkill.
+それでは、自身のサイトにロゴ画像を追加してみましょう。最初から全く新規のテーマを作成するのは手に余りますので、まずは軽微な変更を行います。
 
-First, let's find the built-in templates.  Type::
+まずは既に適用されているテンプレートファイルの位置を特定します。シェルに以下を入力してください。 ::
 
     localwiki-manage shell
 
-then once you're in the localwiki shell, copy and paste this::
+localwiki操作用のシェルが起動したら、以下をコピーして貼り付けます。::
 
     import sapling; print sapling.__path__[0]; exit()
 
-This will print out where the localwiki code itself lives on your
-system.
+コマンドの結果として、あなたのサーバのlocalwikiのインストール先ディレクトリが出力されます。
 
-.. note:: It's not a good idea to modify the files in the code directory
-   directly, as they're likely to be replaced when you upgrade.  If you
-   want to customize the code you should do a :ref:`development install <dev-install>`.
 
-Copy the path printed out and ``cd`` there.  You'll see there's a
-``themes`` directory in that directory.  Inside the ``themes`` directory
-is a directory for the default built-in theme, ``sapling``.
+.. 注意点:: コードが配置されているディレクトリにあるファイルを直接編集するのは推奨されません。アップグレードの際に、それらのファイルが上書きされてしまう可能性があるためです。コードを直接編集する必要が有る場合は、:ref:`development install <dev-install>` の手順に従うようにしてください。
 
-As explained earlier, the ``sapling`` theme directory has an ``assets``
-and a ``templates`` directory inside of it::
+先ほどのコマンドの結果で出力されたlocalwikiのインストール先ディレクトリをコピーして、 ``cd``で移動してください。``theme``ディレクトリが配置されているはずです。 さらに、``theme``ディレクトリの配下には、既に適用されているテーマ ``sapling`` が配置されています。
+
+先に説明した通り、 ``sapling``テーマディレクトリの配下には ``assets``と ``templates``ディレクトリが配置されています。::
+
 
     $ ls sapling
     assets  LICENSE.txt  README  templates
 
-If we go inside the templates directory, we'll see a ``site`` directory
-containing some template files::
+``template``ディレクトリの中には、テンプレートファイルが配置されている ``site``ディレクトリが存在します。
 
     $ cd templates
     $ ls
@@ -88,25 +82,19 @@ containing some template files::
     $ ls
     base.html  login_info.html  nav.html  search_form.html  site_title.html
 
-Taking a look at the template files, the ``site_title.html`` file is
-what we want to customize to add our own logo.  Let's copy that template
-over to our global templates directory and then customize it.
+テンプレートファイルの中にある``site_title.html``が、今回のロゴ追加作業で変更対象となるファイルです。テンプレートファイルを、自身のサイトのグローバルテンプレートディレクトリにコピーして、編集を行いましょう。
 
-First, let's make a ``site`` directory inside our global template
-directory (explained above).
+まずは、``site``ディレクトリをまるごと、グローバルテンプレートディレクトリ(前述)へコピーします。
 
-The global template directory is ``/usr/share/localwiki/templates``, or
-``env/share/localwiki/templates`` (for manual installs)::
+グローバルテンプレートディレクトリは``/usr/share/localwiki/templates``か、あるいは``env/share/localwiki/templates`` (手動インストールの場合)です。::
 
     mkdir /usr/share/localwiki/templates/site
 
-then copy the file over::
+ファイルをコピーしましょう。::
 
     cp site_title.html /usr/share/localwiki/templates/site
 
-Now we simply open up the copy of the template we made,
-``/usr/share/localwiki/templates/site/site_title.html``.  It looks like
-this::
+コピーが終わったら、``/usr/share/localwiki/templates/site/site_title.html``を開いて編集します。以下の内容が記載されているはずです。::
 
     {% block site_title %}
     {% if current_site %}
@@ -114,7 +102,7 @@ this::
     {% endif %}
     {% endblock %}
 
-Let's change it to look like this::
+以下のように編集します。::
 
     {% block site_title %}
     {% if current_site %}
@@ -122,29 +110,25 @@ Let's change it to look like this::
     {% endif %}
     {% endblock %}
 
-Now we need to go design a pretty logo, name it ``logo.png`` and move it
-into the static directory, located at ``/usr/share/localwiki/static`` or
-``env/share/localwiki/static`` (for manual installations).
+ロゴ用の画像を編集して、ファイル名を``logo.png``にします。画像ファイルは静的ファイル用ディレクトリに配置します。``/usr/share/localwiki/static``、あるいは``env/share/localwiki/static`` (手動インストールの場合)です。
 
-Once we've done all this we'll need to restart the webserver.  You can
-usually do this by running the command::
+ここまでの手順が完了したら、ウェブサーバを再起動します。 以下のコマンドを入力してください。::
 
     sudo /etc/init.d/apache2 restart
 
-And you'll have a shiny new logo on your site!
+ピッカピカの新ロゴが表示されましたか？
 
 
-Example 2: Adding a custom CSS file on every page
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+例 2: ページ毎に独自のCSSファイルを適用する
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you look at https://dentonwiki.org, you'll see they've got a cool "I want to
 create a page about _______" banner on their front page:
 
 .. figure:: /_static/images/css_table_dentonwiki.jpg
 
-The DentonWiki achieves this by creating a table and then giving it a
-custom CSS class.  If you click on "View source" on
-https://dentonwiki.org, you'll see::
+DentonWikiではこの機能を、表を1つ作成し、カスタマイズしたCSSクラスをそれに与えることで実現しています。 https://dentonwiki.orgで"ソースを表示"させると、以下のソースが表示されます。::
+
 
     <table class="welcome">
       <tbody>

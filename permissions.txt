@@ -1,72 +1,49 @@
-Permissions
-===========
+アクセス権限設定
+==========
 
-LocalWiki uses a pretty flexible system of permissions that allows the
-administrator to say who is allowed to add, change, and delete different
-objects (pages, maps, files, etc.).  It also lets the administrator ban users
-who are malicious.
-
-There are two levels of permissions: by type of object (i.e., page, map, etc.)
-and by specific object (i.e., "Front Page").  This allows you to set the
-default permissions for all objects and still adjust them for certain objects
-that should be more protected (or more open).
+Localwikiでは柔軟なアクセス管理方式を採用しており、それぞれのオブジェクト(ページ、マップ、ファイル、その他)に対して、ユーザが追加、変更、削除の権限をどこまで有するかを管理者によって設定することができます。また、悪意のあるユーザに対する禁止ユーザ登録も実施可能です。
 
 
-Users and groups
-----------------
-
-Users can belong to one or more Group, and new groups can be added any time.
-You can grant permissions to each group, and the users in that group will
-inherit those permissions.  This makes role-based permissions possible,
-allowing you, for example, to create a group called "Trusted Users" and give
-this group additional permissions.
-
-.. note::
-
-   It is good practice to grant permissions to groups instead of individual
-   users because it's more manageable (there are lots of users and few groups)
-   and maintainable (users come and go, and it's much easier to add and remove
-   them from groups as needed).
+アクセス権限設定には2つのレベルがあります。: 1つはオブジェクトの種類(例:ページ、マップ、その他)に対する設定、もう一つは特定のオブジェクト(例: "Front Page"というページ)に対する設定です。この方式によって、まずは全てのオブジェクトに対する規定の制限を設定し、その上で幾つかのオブジェクトに対してはさらに細かい制限を設けたり、逆に設定をゆるめたりすることが可能です。
 
 
-If you followed the installation instructions, you should have the following
-groups out of the box:
+ユーザとグループ
+--------------
+
+ユーザは1つ以上のグループに所属することができます。また、グループはいつでも新規に作成することが可能です。管理者は特定のアクセス権限をグループ毎に付与し、グループに所属しているユーザはグループに対するアクセス権限設定を引き継ぎます。役割ベースのアクセス権限設定によって、例えば "Trusted Users(信頼済みのユーザ)"のようなグループを作成し、そのグループに対して追加のアクセス権限設定を付与することができます。
+
+
+.. 注意点::
+
+   アクセス権限設定は、個別のユーザではなくグループに対して行うことを推奨します。そのほうが管理性が高く(多数のユーザと少数のグループ)、なおかつ、メンテナンス性も向上します(ユーザは入れ替わることがあり、必要に応じてグループへ編集するほうが便利です)。
+
+インストール手順に沿ってインストールを行った場合、以下のグループが規定で設定されているはずです。:
 
 .. figure:: /_static/images/admin_groups.png
 
 ``Anonymous``
-    This group contains ``AnonymousUser``, which is used to set permissions for
-    people who are not logged in.
+    このグループは ``AnonymousUser``(匿名ユーザ)を意味します。ログインをおこなっていない訪問者に対する権限設定となります。
 
 ``Authenticated``
-    This group contains every user except ``AnonymousUser``.  New users are
-    automatically added to this group.  It's a catch-all group to make it easy
-    to set the default settings for everyone who's logged in.
-
+    このグループは``AnonymousUser``(認証済みユーザ)、すなわちログインを行ったユーザを意味します。新しく作成されたユーザは自動的にこのグループに追加されます。ログインを行ったユーザ全てに対するデフォルトの設定として、このグループの設定を利用するのが便利です。
+    
 ``Banned``
-    Users added to this group will be denied all permissions, regardless of
-    what permissions are set for this group or what other groups they belong
-    to.
+    全てのアクセス権限設定を剥奪されたグループです。ユーザが他に所属しているグループの権限に関係なく、すべてのアクセス権限が剥奪されます。
 
-
-Banning a user
+禁止ユーザ設定
 --------------
 
-To ban a user, simply add the user to the ``Banned`` group.  You do not need
-to remove the user from other groups.  Any user in the ``Banned`` group will
-not have any permissions.
+ユーザの禁止設定を行うには、単純にそのユーザを``Banned``グループに追加してください。その他のグループからそのユーザを除外する必要はありません。``Banned``グループに追加されたユーザはすべてのアクセス権限設定を剥奪されます。
 
-First, find the user in the admin interface, using the search box:
+まずは、管理画面内の検索ボックスを使って対象のユーザを特定します。
 
 .. figure:: /_static/images/admin_user_search.png
 
-Click on the username, and scroll down "Groups" section. Hold down
-"Control" ("Command" on a Mac) while selecting ``Banned`` group, and press
-"Save".
+ユーザ名をクリックし、"Groups"の位置まで画面をスクロールさせます。 "Control" (Macでは "Command")キーを押しながら ``Banned``グループを選択し、"Save"を行います。
 
 .. figure:: /_static/images/admin_ban_user.png
 
-.. note::
+.. 注意点::
 
    While it's possible in the admin interface to delete a user, this is
    **NOT** recommended as it will also delete every change the user has made.

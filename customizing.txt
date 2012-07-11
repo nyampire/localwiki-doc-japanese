@@ -203,7 +203,7 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 3. CSSファイルは2つの画像ファイルを参照しています。``/static/img/80_trans_white_bg.png`` と``/front_page/_files/welcome.jpg``です。``welcome.jpg``画像の追加は、単純に``welcome.jpg``という名称のファイルをFront Pageへ追加することで行います。また、``/usr/share/localwiki/static/img`` (あるいは手動インストールの場合 ``env/share/locawiki/static/img``)へ、`80_trans_white_bg.png <https://dentonwiki.org/static/img/80_trans_white_bg.png>`_ をコピーします。
 
-4. こうして作成した ``denton.css``を、全てのページのHTMLファイルから参照させます。:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動し、``sites/base.html``をグローバルテンプレートディレクトリへコピーします。
+4. こうして作成した ``denton.css``を、全てのページのHTMLファイルから参照させます。:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動し、``sites/base.html``をグローバルテンプレートディレクトリへコピーします。::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/sapling/templates/site
@@ -237,11 +237,7 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 カスタマイズに慣れてきたら、完全に新しいテーマを自作することも可能です。以下に方法を示します。:
 
-1. Go into the localwiki code directory, referenced in the beginning of
-Example 1, and copy the ``sapling`` theme directory to your global
-``themes`` directory::
-
-1. localwikiのコードディレクトリへ移動し、:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動して、``sapling``テーマを、自身のグローバルテンプレートディレクトリの ``theme``へコピーします。
+1. localwikiのコードディレクトリへ移動し、:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動して、``sapling``テーマを、自身のグローバルテンプレートディレクトリの ``theme``へコピーします。::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/
@@ -276,10 +272,6 @@ Example 1, and copy the ``sapling`` theme directory to your global
 
 既に配置されているテンプレートの上書き
 --------------------------------------
-
-More detail on this soon.  You'll probably be able to figure this out if
-you dig around.  But, as an example, to override ``pages/base.html``, you
-simply define ``themes/nameofyourtheme/templates/pages/base.html``
 
 詳細は近日追記予定です。自分で方法を編み出せる方のために記載しておくと、例えば ``pages/base.html``を上書きするには ``themes/nameofyourtheme/templates/pages/base.html``ファイルを作成して定義する必要があります。
 

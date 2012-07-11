@@ -1,5 +1,5 @@
-Permissions
-===========
+アクセス権限設定
+================
 
 LocalWiki uses a pretty flexible system of permissions that allows the
 administrator to say who is allowed to add, change, and delete different

@@ -19,10 +19,7 @@ Localwikiには *テンプレート*という概念があります。テンプ�
 
 .. 注意:: これらの *テンプレートファイル*は、Wiki上の "テンプレートページ"とは異なります。Wiki上のテンプレートページは、ページの新規作成の手間を削減するために用意されています。サーバ上に配置されている *テンプレートファイル*とは、Localwikiソフトウェアがサイト自体を生成するために利用するファイルです。
 
-These templates are simply
-これらのテンプレートファイルは純粋に
-`Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_
-であり、Djangoテンプレート言語をすべてサポートしています。テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。ただし、細かい修正であればテンプレートドキュメントを読むまでもないでしょう。
+これらのテンプレートファイルは `Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を基礎としており、特に改変を加えていません。Djangoテンプレート言語は、すべてサポートされています。テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。ただし、細かい修正であればテンプレートドキュメントを読み込むまでもなく変更することができます。
 
 グローバルのテンプレートディレクトリは``/usr/share/localwiki/templates``、あるいは ``env/share/localwiki/templates`` (手動インストール時)です。
 

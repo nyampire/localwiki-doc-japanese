@@ -8,14 +8,16 @@ Ubuntuへのインストール
 
 Localwikiでは、Ubuntu 10.04 LTS以降のバージョンに対するビルト済みパッケージを提供しています。
 
-インストール先のUbuntuでターミナルを開き、以下のコマンドを入力してください。::
+インストール先のUbuntuでターミナルを開き、以下のコマンドを入力してください。 ::
 
    sudo apt-get install python-software-properties
    sudo apt-add-repository ppa:localwiki
    sudo apt-get update
    sudo apt-get install localwiki
 
-これで完了です！ 表示されるプロンプトに従って、Localwikiを設定してください。
+これで完了です！
+
+表示されるプロンプトに従って、Localwikiを設定してください。
 
 .. _dev-install:
 
@@ -24,7 +26,7 @@ Localwikiでは、Ubuntu 10.04 LTS以降のバージョンに対するビルト�
 
 .. 注意:: 以下の方法は、Ubuntuパッケージを利用できない場合、あるいは開発環境を設定する場合にのみ利用してください。
 
-詳細な手順はこのドキュメントの ``INSTALL`` ファイルに記述されています。以下の場所にも同梱されています。:
+詳細な手順はこのドキュメントの ``INSTALL`` ファイルに記述されています。以下の場所にも同梱されています。 ::
 
 .. literalinclude:: ../../INSTALL
 

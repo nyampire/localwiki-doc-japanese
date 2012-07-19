@@ -1,41 +1,48 @@
 localwikiの外観カスタマイズ
 ===========================
 
-Localwikiはサイトの外観や挙動の一部を変更することが可能です。その際、ソースコードまで掘り下げて変更する必要はありません。変更は、サイトのCSSや、外観のテンプレート、あるいは全く新規にテーマを作成することで行います。
+Localwikiはサイトの外観や挙動の一部を変更することが可能です。その際、ソースコードまで掘り下げて変更する必要はありません。
 
-テンプレートやCSSの修正という手順は、ソースコードを改変するよりも多少技術的な敷居が低いと考えています。ただし、操作するにはサーバ上での設定ファイル修正方法や、HTML・CSSについての若干の知識が必要です。
+変更は、サイトのCSSや、外観のテンプレート、あるいは全く新規にテーマを作成することで行います。
+
+テンプレートやCSSの修正という手順は、ソースコードを改変するよりも多少技術的な敷居が低いと考えています。
+
+ただし、操作するにはサーバ上での設定ファイル修正方法や、HTML・CSSについての若干の知識が必要です。
 
 
-.. 注意点:: もしあなたが開発者で、既に上記の知識に慣れ親しんでいる場合、``localsettings.py``の``DEBUG``項目を``False``に変更してください。
-   otherwise you won't see static media show up when using
-   ``localwiki-manage runsever``.
+.. 注意点 :: もしあなたが開発者で、既に上記の知識に慣れ親しんでいる場合、``localsettings.py`` の ``DEBUG`` 項目を ``False`` に変更してください。
+   Trueのままで運用を行った場合、``localwiki-manage runserver`` を実行した際に静的なメディアファイルを読み込むことができません。
 
 
 テンプレートファイル
 --------------------
 
-Localwikiには *テンプレート*という概念があります。テンプレートとは、Localwikiが稼働しているサーバ上に配置されたテキストファイルで、サイト内のページを生成するために利用されます。
+Localwikiには *テンプレート* という概念があります。テンプレートとは、Localwikiが稼働しているサーバ上に配置されたテキストファイルで、サイト内のページを生成するために利用されます。
 
 
-.. 注意:: これらの *テンプレートファイル*は、Wiki上の "テンプレートページ"とは異なります。Wiki上のテンプレートページは、ページの新規作成の手間を削減するために用意されています。サーバ上に配置されている *テンプレートファイル*とは、Localwikiソフトウェアがサイト自体を生成するために利用するファイルです。
+.. 注意 :: これらの *テンプレートファイル* は、Wiki上の "テンプレートページ" とは異なります。Wiki上のテンプレートページは、ページの新規作成の手間を削減するために用意されています。サーバ上に配置されている *テンプレートファイル* とは、Localwikiソフトウェアがサイト自体を生成するために利用するファイルです。
 
-これらのテンプレートファイルは `Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を基礎としており、特に改変を加えていません。Djangoテンプレート言語は、すべてサポートされています。テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。ただし、細かい修正であればテンプレートドキュメントを読み込むまでもなく変更することができます。
+   これらのテンプレートファイルは `Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を基礎としており、特に改変を加えていません。
 
-グローバルのテンプレートディレクトリは``/usr/share/localwiki/templates``、あるいは ``env/share/localwiki/templates`` (手動インストール時)です。
+   Djangoテンプレート言語は、すべてサポートされています。
+
+   テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。
+
+   ただし、細かい修正であればテンプレートドキュメントを読み込むまでもなく変更することができます。
+
+グローバルのテンプレートディレクトリは ``/usr/share/localwiki/templates`` 、あるいは ``env/share/localwiki/templates``  (手動インストール時)です。
 
 テーマ
 ------
 
-*テーマ*はテンプレートファイルと静的なアセットファイルを一揃えのセットにしたもので、サイト全体の外観を左右します。
-
-Each theme is simply a directory containing:
+*テーマ* はテンプレートファイルと静的なアセットファイルを一揃えのセットにしたもので、サイト全体の外観を左右します。
 
 それぞれのテーマはディレクトリに分けられ、以下のファイルが配置されます:
 
-* テンプレート用ディレクトリ (``templates/``)
-* 静的なアセット設定ディレクトリ (``assets/``) 例えば、CSSファイルや画像ファイル等
+* テンプレート用ディレクトリ ( ``templates/`` )
+* 静的なアセット設定ディレクトリ ( ``assets/`` ) 例えば、CSSファイルや画像ファイル等
 
-グローバルのテーマディレクトリは``/usr/share/localwiki/themes``、あるいは ``env/share/localwiki/themes`` (手動インストール時)です。 *注意*:もしlocalwiki-0.2-beta-12を利用している場合は、上記のディレクトリを手動で作成する必要があります。
+グローバルのテーマディレクトリは ``/usr/share/localwiki/themes`` 、あるいは ``env/share/localwiki/themes`` (手動インストール時)です。 *注意* :もしlocalwiki-0.2-beta-12を利用している場合は、上記のディレクトリを手動で作成する必要があります。
 
 
 チュートリアル
@@ -47,30 +54,33 @@ Each theme is simply a directory containing:
 
 例 1: ロゴ画像の追加
 ~~~~~~~~~~~~~~~~~~~~~~~~
-それでは、自身のサイトにロゴ画像を追加してみましょう。最初から全く新規のテーマを作成するのは手に余りますので、まずは軽微な変更を行います。
+それでは、自身のサイトにロゴ画像を追加してみましょう。
 
-まずは既に適用されているテンプレートファイルの位置を特定します。シェルに以下を入力してください。 ::
+最初から全く新規のテーマを作成するのは手に余りますので、まずはちょっとした変更から始めてみましょう。
+
+まずは、既に適用されているテンプレートファイルの位置を特定します。
+
+シェルに以下を入力してください。 ::
 
     localwiki-manage shell
 
-localwiki操作用のシェルが起動したら、以下をコピーして貼り付けます。::
+localwiki操作用のシェルが起動したら、以下をコピーして貼り付けます。 ::
 
     import sapling; print sapling.__path__[0]; exit()
 
 コマンドの結果として、あなたのサーバのlocalwikiのインストール先ディレクトリが出力されます。
 
 
-.. 注意点:: コードが配置されているディレクトリにあるファイルを直接編集するのは推奨されません。アップグレードの際に、それらのファイルが上書きされてしまう可能性があるためです。コードを直接編集する必要が有る場合は、:ref:`development install <dev-install>` の手順に従うようにしてください。
+.. 注意点 :: コードが配置されているディレクトリにあるファイルを直接編集するのは推奨されません。アップグレードの際に、それらのファイルが上書きされてしまう可能性があるためです。コードを直接編集する必要が有る場合は、:ref:`development install <dev-install>` の手順に従うようにしてください。
 
-先ほどのコマンドの結果で出力されたlocalwikiのインストール先ディレクトリをコピーして、 ``cd``で移動してください。``theme``ディレクトリが配置されているはずです。 さらに、``theme``ディレクトリの配下には、既に適用されているテーマ ``sapling`` が配置されています。
+先ほどのコマンドの結果で出力されたlocalwikiのインストール先ディレクトリをコピーして、 ``cd`` で移動してください。 ``theme`` ディレクトリが配置されているはずです。 さらに、 ``theme`` ディレクトリの配下には、既に適用されているテーマ ``sapling`` が配置されています。
 
-先に説明した通り、 ``sapling``テーマディレクトリの配下には ``assets``と ``templates``ディレクトリが配置されています。::
-
+先に説明した通り、 ``sapling`` テーマディレクトリの配下には ``assets`` と ``templates`` ディレクトリが配置されています。 ::
 
     $ ls sapling
     assets  LICENSE.txt  README  templates
 
-``template``ディレクトリの中には、テンプレートファイルが配置されている ``site``ディレクトリが存在します。
+``template`` ディレクトリの中には、テンプレートファイルが配置されている ``site`` ディレクトリが存在します。 ::
 
     $ cd templates
     $ ls
@@ -79,19 +89,21 @@ localwiki操作用のシェルが起動したら、以下をコピーして貼�
     $ ls
     base.html  login_info.html  nav.html  search_form.html  site_title.html
 
-テンプレートファイルの中にある``site_title.html``が、今回のロゴ追加作業で変更対象となるファイルです。テンプレートファイルを、自身のサイトのグローバルテンプレートディレクトリにコピーして、編集を行いましょう。
+テンプレートファイルの中にある ``site_title.html`` が、今回のロゴ追加作業で変更対象となるファイルです。テンプレートファイルを、自身のサイトのグローバルテンプレートディレクトリにコピーして、編集を行いましょう。
 
-まずは、``site``ディレクトリをまるごと、グローバルテンプレートディレクトリ(前述)へコピーします。
+まずは、``site`` ディレクトリをまるごと、グローバルテンプレートディレクトリ(前述)へコピーします。
 
-グローバルテンプレートディレクトリは``/usr/share/localwiki/templates``か、あるいは``env/share/localwiki/templates`` (手動インストールの場合)です。::
+グローバルテンプレートディレクトリは ``/usr/share/localwiki/templates`` か、あるいは ``env/share/localwiki/templates``  (手動インストールの場合)です。 ::
 
     mkdir /usr/share/localwiki/templates/site
 
-ファイルをコピーしましょう。::
+ファイルをコピーしましょう。 ::
 
     cp site_title.html /usr/share/localwiki/templates/site
 
-コピーが終わったら、``/usr/share/localwiki/templates/site/site_title.html``を開いて編集します。以下の内容が記載されているはずです。::
+コピーが終わったら、 ``/usr/share/localwiki/templates/site/site_title.html`` を開いて編集します。
+
+以下の内容が記載されているはずです。 ::
 
     {% block site_title %}
     {% if current_site %}
@@ -99,7 +111,7 @@ localwiki操作用のシェルが起動したら、以下をコピーして貼�
     {% endif %}
     {% endblock %}
 
-以下のように編集します。::
+以下のように編集します。 ::
 
     {% block site_title %}
     {% if current_site %}
@@ -107,24 +119,27 @@ localwiki操作用のシェルが起動したら、以下をコピーして貼�
     {% endif %}
     {% endblock %}
 
-ロゴ用の画像を編集して、ファイル名を``logo.png``にします。画像ファイルは静的ファイル用ディレクトリに配置します。``/usr/share/localwiki/static``、あるいは``env/share/localwiki/static`` (手動インストールの場合)です。
+ロゴ用の画像を編集して、ファイル名を ``logo.png`` に変更します。
 
-ここまでの手順が完了したら、ウェブサーバを再起動します。 以下のコマンドを入力してください。::
+画像ファイルは静的ファイル用ディレクトリに配置します。
+
+``/usr/share/localwiki/static`` 、あるいは ``env/share/localwiki/static`` (手動インストールの場合)です。
+
+ここまでの手順が完了したら、ウェブサーバを再起動します。 以下のコマンドを入力してください。 ::
 
     sudo /etc/init.d/apache2 restart
 
-ピッカピカの新ロゴが表示されましたか？
+新しいロゴが表示されましたか？
 
 
 例 2: ページ毎に独自のCSSファイルを適用する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you look at https://dentonwiki.org, you'll see they've got a cool "I want to
-create a page about _______" banner on their front page:
+If you look at https://dentonwiki.org, you'll see they've got a cool "I want to create a page about _______" banner on their front page:
 
-.. figure:: /_static/images/css_table_dentonwiki.jpg
+.. figure :: /_static/images/css_table_dentonwiki.jpg
 
-DentonWikiではこの機能を、表を1つ作成し、カスタマイズしたCSSクラスをそれに与えることで実現しています。 https://dentonwiki.orgで"ソースを表示"させると、以下のソースが表示されます。::
+DentonWikiではこの機能を、表を1つ作成し、カスタマイズしたCSSクラスをそれに与えることで実現しています。 https://dentonwiki.orgで "ソースを表示" させると、以下のソースが表示されます。 ::
 
 
     <table class="welcome">
@@ -151,11 +166,11 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 独自のCSSクラスを表に対して追加するには、編集中に右クリックを押し、 Table properties -> Advanced settings -> CSS classes から行うことができます。
 
-しかし、カスタマイズしたCSSを適用させるには、新規にCSSファイルを作成し、ページのHTMLからCSSファイルを参照させる必要があります。以下に方法を示します。::
+しかし、カスタマイズしたCSSを適用させるには、新規にCSSファイルを作成し、ページのHTMLからCSSファイルを参照させる必要があります。以下に方法を示します。:
 
-1. グローバルスタティックディレクトリに ``denton.css``という名称のファイルを作成します。今回の状況では ``/usr/share/localwiki/static/css/denton.css`` (あるいは手動インストールの場合 ``env/share/localwiki/static/css``)です。
+1. グローバルスタティックディレクトリに ``denton.css`` という名称のファイルを作成します。今回の状況では ``/usr/share/localwiki/static/css/denton.css`` (あるいは手動インストールの場合 ``env/share/localwiki/static/css`` )です。
 
-2. ``denton.css``に対して、以下の記述を行います。クラス``welcome``を使って、表の見た目を変更しています。::
+2. ``denton.css`` に対して、以下の記述を行います。クラス ``welcome`` を使って、表の見た目を変更しています。 ::
 
     #page .welcome td {
         display: block;
@@ -198,9 +213,13 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
         margin-top: 0.4em;
     }
 
-3. CSSファイルは2つの画像ファイルを参照しています。``/static/img/80_trans_white_bg.png`` と``/front_page/_files/welcome.jpg``です。``welcome.jpg``画像の追加は、単純に``welcome.jpg``という名称のファイルをFront Pageへ追加することで行います。また、``/usr/share/localwiki/static/img`` (あるいは手動インストールの場合 ``env/share/locawiki/static/img``)へ、`80_trans_white_bg.png <https://dentonwiki.org/static/img/80_trans_white_bg.png>`_ をコピーします。
+3. CSSファイルは2つの画像ファイルを参照しています。
 
-4. こうして作成した ``denton.css``を、全てのページのHTMLファイルから参照させます。:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動し、``sites/base.html``をグローバルテンプレートディレクトリへコピーします。::
+``/static/img/80_trans_white_bg.png`` と ``/front_page/_files/welcome.jpg`` です。
+
+``welcome.jpg`` 画像の追加は、単純に ``welcome.jpg`` という名称のファイルをFront Pageへ追加することで行います。また、 ``/usr/share/localwiki/static/img`` (あるいは手動インストールの場合 ``env/share/locawiki/static/img`` )へ、 `80_trans_white_bg.png <https://dentonwiki.org/static/img/80_trans_white_bg.png>`_ をコピーします。
+
+4. こうして作成した ``denton.css`` を、全てのページのHTMLファイルから参照させます。:ref: `例 1 <example1>` で行った操作を参考にして localwikiのコードディレクトリへ移動し、 ``sites/base.html`` をグローバルテンプレートディレクトリへコピーします。 ::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/sapling/templates/site
@@ -208,14 +227,14 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
     base.html  login_info.html  nav.html  search_form.html  site_title.html
     $ cp base.html /usr/share/localwiki/templates/site/
 
-次に、新しくコピーした ``/usr/share/localwiki/templates/site/base.html``ファイルを開きましょう。ファイルの一部を以下のように編集します。::
+次に、新しくコピーした ``/usr/share/localwiki/templates/site/base.html`` ファイルを開きましょう。ファイルの一部を以下のように編集します。 ::
 
   {% block media %}
   <link rel="stylesheet" href="{% static "theme/css/reset.css" %}">
   <link rel="stylesheet" href="{% static "theme/css/site.css" %}">
   {% endblock %}
 
-以下のように書き換えます。::
+以下のように書き換えます。 ::
 
   {% block media %}
   <link rel="stylesheet" href="{% static "theme/css/reset.css" %}">
@@ -223,44 +242,44 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
   <link rel="stylesheet" href="{{ STATIC_URL }}css/denton.css?v=1">
   {% endblock %}
 
-編集が完了したら、ウェブサーバを再起動します。::
+編集が完了したら、ウェブサーバを再起動します。 ::
 
     sudo /etc/init.d/apache2 restart
 
-自身の全てのページから、``denton.css``ファイルが参照されるようになります！
+自身の全てのページから、``denton.css`` ファイルが参照されるようになります！
 
 テーマをの新規作成
-------------------------------
+------------------
 
 カスタマイズに慣れてきたら、完全に新しいテーマを自作することも可能です。以下に方法を示します。:
 
-1. localwikiのコードディレクトリへ移動し、:ref:`例 1 <example1>`で行った操作を参考にして localwikiのコードディレクトリへ移動して、``sapling``テーマを、自身のグローバルテンプレートディレクトリの ``theme``へコピーします。::
+1. localwikiのコードディレクトリへ移動し、:ref: `例 1 <example1>` で行った操作を参考にして localwikiのコードディレクトリへ移動して、 ``sapling`` テーマを、自身のグローバルテンプレートディレクトリの ``theme`` へコピーします。 ::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/
     $ cp -r sapling /usr/share/localwiki/themes/nameofyourtheme
 
-.. 注意点:: localwiki-0.12-beta-12 では、``themes`` ディレクトリが share/localwiki になります。もしディレクトリが存在しない場合は新しく作成してください。
+.. 注意点 :: localwiki-0.12-beta-12 では、``themes`` ディレクトリが share/localwiki になります。もしディレクトリが存在しない場合は新しく作成してください。
 
-次に、``/usr/share/localwiki/conf/localsettings.py`` ファイルを編集し、``SITE_THEME`` の値を``sapling`` から ``nameofyourtheme``(自分の好きな名称) に変更します。
+次に、``/usr/share/localwiki/conf/localsettings.py`` ファイルを編集し、``SITE_THEME`` の値を ``sapling`` から ``nameofyourtheme`` (自分の好きな名称) に変更します。
 
-完了したら、以下のコマンドを実行します。::
+完了したら、以下のコマンドを実行します。:
 
     localwiki-manage collectstatic
 
-ウェブサーバの再起動を行います。::
+ウェブサーバの再起動を行います。 ::
 
     /etc/init.d/apache2 restart
 
 上記の手順で、あなたが自作した新規テーマを利用することが可能です。
 
-テーマの開発を行う際、``template/``配下のファイルを変更した場合はウェブサーバの再起動が必要です。また、 ``assets/``配下のファイルを変更した場合は ``localwiki-manage collectstatic``を実行する必要があります。
+テーマの開発を行う際、 ``template/`` 配下のファイルを変更した場合はウェブサーバの再起動が必要です。また、 ``assets/`` 配下のファイルを変更した場合は ``localwiki-manage collectstatic`` を実行する必要があります。
 
 
 テンプレート内から静的なアセットを参照
 --------------------------------------
 
-テーマテンプレートの中で、静的なアセットを参照することが可能です。::
+テーマテンプレートの中で、静的なアセットを参照することが可能です。 ::
 
     <img src="{{STATIC_URL}}theme/img/mybutton.png"/>
 
@@ -270,6 +289,8 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 既に配置されているテンプレートの上書き
 --------------------------------------
 
-詳細は近日追記予定です。自分で方法を編み出せる方のために記載しておくと、例えば ``pages/base.html``を上書きするには ``themes/nameofyourtheme/templates/pages/base.html``ファイルを作成して定義する必要があります。
+詳細は近日追記予定です。
+
+自分で方法を編み出せる方のために記載しておくと、例えば ``pages/base.html`` を上書きするには ``themes/nameofyourtheme/templates/pages/base.html`` ファイルを作成して定義する必要があります。
 
 

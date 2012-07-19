@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # localwiki-ja documentation build configuration file, created by
-# sphinx-quickstart on Fri Jul 20 01:10:25 2012.
+# sphinx-quickstart on Fri Jul 20 02:13:39 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #

@@ -4,14 +4,20 @@ Web サーバ設定
 通常インストール
 --------------------
 
-Ubuntuパッケージを利用してLocalwikiをインストールする場合、WebサーバとしてApacheが自動的にインストールされます。Apacheの設定は ``/etc/apache2/sites-enabled/example.com``にあります。サーバ名などを変更したい場合、このファイルを編集してください。
+Ubuntuパッケージを利用してLocalwikiをインストールする場合、WebサーバとしてApacheが自動的にインストールされます。
 
-Apacheの設定については、`Apache 公式ドキュメント <http://httpd.apache.org/docs/>`_ を参照してください。
+Apacheの設定は ``/etc/apache2/sites-enabled/example.com`` で行います。
+
+サーバ名などを変更したい場合、このファイルを編集してください。
+
+また、Apacheの設定については `Apache 公式ドキュメント <http://httpd.apache.org/docs/>`_ を参照してください。
 
 開発用サーバ設定
 ------------------
 
-開発用、あるいはテスト用としてサーバを起動する場合、ビルトインされている ``localwiki-manage runserver``を利用することも可能です。公開環境でこのサーバを利用することは避けてください。
+開発用、あるいはテスト用としてサーバを起動する場合、ビルトインされている ``localwiki-manage runserver`` を利用することも可能です。
+
+公開環境でこのサーバを利用することは避けてください。
 
 手動インストール
 --------------------
@@ -23,7 +29,7 @@ Localwikiを手動でインストールした場合、 wsgiテンプレートフ
 
 ``localwiki.wsgi``を開き、Localwikiのインストール先を絶対パスで``VIRTUAL_ENV_PATH``に指定してください。
 
-次に、Apacheの設定ファイルを作成します。以下がサンプルです。::
+次に、Apacheの設定ファイルを作成します。以下がサンプルです。 ::
 
   <VirtualHost *:80>
     ServerAdmin webmaster@example.org
@@ -81,10 +87,14 @@ Localwikiを手動でインストールした場合、 wsgiテンプレートフ
 
 必要な箇所の編集を行います。
 
-``ServerAdmin``, ``ServerName``, そして ``ServerAlias`` は、自分自身の値に変更する必要があります。詳細は Apacheのドキュメントを参照してください。
+``ServerAdmin``, ``ServerName``, そして ``ServerAlias`` は、自分自身の値に変更する必要があります。
 
-``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- この値は、自分自身の値に変更する必要があります。 ``/path/to/your/deploy/`` を 自身のサーバの``localwiki.wsgi``のファイルがあるディレクトリに変更してください。
+詳細は Apacheのドキュメントを参照してください。
 
-``Alias ...`` で始まる行に含まれている ``/path/to/your/env``の部分を、自身のサーバのLocalwikiインストール先ディレクトリの絶対パスに変更してください。
+``WSGIScriptAlias / /path/to/your/deploy/localwiki.wsgi`` -- この部分は、自身のサーバの値に変更する必要があります。
+
+``/path/to/your/deploy/`` を 自身のサーバの ``localwiki.wsgi`` のファイルがあるディレクトリに変更してください。
+
+``Alias ...`` で始まる行に含まれている ``/path/to/your/env`` の部分を、自身のサーバのLocalwikiインストール先ディレクトリの絶対パスに変更してください。
 
 設定ファイルを編集した後は、Apacheを再起動する必要があります。再起動の詳細な手順については `official Apache documentation <http://httpd.apache.org/docs/>`_ を参照してください。

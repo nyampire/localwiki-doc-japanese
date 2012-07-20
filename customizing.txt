@@ -1,4 +1,4 @@
-localwikiの外観カスタマイズ
+Localwikiの外観カスタマイズ
 ===========================
 
 Localwikiはサイトの外観や挙動の一部を変更することが可能です。その際、ソースコードまで掘り下げて変更する必要はありません。
@@ -22,9 +22,7 @@ Localwikiには *テンプレート* という概念があります。テンプ�
 
 .. note:: これらの *テンプレートファイル* は、Wiki上の "テンプレートページ" とは異なります。Wiki上のテンプレートページは、ページの新規作成の手間を削減するために用意されています。サーバ上に配置されている *テンプレートファイル* とは、Localwikiソフトウェアがサイト自体を生成するために利用するファイルです。
 
-   これらのテンプレートファイルは `Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を基礎としており、特に改変を加えていません。
-
-   Djangoテンプレート言語は、すべてサポートされています。
+   これらのテンプレートファイルは `Django テンプレート <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を基礎としており、特に改変を加えていません。Djangoテンプレート言語は、すべてサポートされています。
 
    テンプレートについての詳細は `Django テンプレートドキュメント <https://docs.djangoproject.com/en/dev/topics/templates/>`_ を参照してください。
 
@@ -135,11 +133,11 @@ localwiki操作用のシェルが起動したら、以下をコピーして貼�
 例 2: ページ毎に独自のCSSファイルを適用する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you look at https://dentonwiki.org, you'll see they've got a cool "I want to create a page about _______" banner on their front page:
+https://dentonwiki.org のFrontPageには、 "I want to create a page about _______" という文字が入ったバナーが表示されています。
 
 .. figure :: /_static/images/css_table_dentonwiki.jpg
 
-DentonWikiではこの機能を、表を1つ作成し、カスタマイズしたCSSクラスをそれに与えることで実現しています。 https://dentonwiki.orgで "ソースを表示" させると、以下のソースが表示されます。 ::
+DentonWiki ではこの機能を、表を1つ作成し、カスタマイズしたCSSクラスをそれに与えることで実現しています。 https://dentonwiki.org で "ページのソースを表示" を実行すると、以下のHTMLソースが表示されます。 ::
 
 
     <table class="welcome">
@@ -166,7 +164,7 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 独自のCSSクラスを表に対して追加するには、編集中に右クリックを押し、 Table properties -> Advanced settings -> CSS classes から行うことができます。
 
-しかし、カスタマイズしたCSSを適用させるには、新規にCSSファイルを作成し、ページのHTMLからCSSファイルを参照させる必要があります。以下に方法を示します。:
+しかし、カスタマイズしたCSSを適用させるには、新規にCSSファイルを作成し、ページのHTMLからCSSファイルを参照させる必要があります。以下に方法を示します。 :
 
 1. グローバルスタティックディレクトリに ``denton.css`` という名称のファイルを作成します。今回の状況では ``/usr/share/localwiki/static/css/denton.css`` (あるいは手動インストールの場合 ``env/share/localwiki/static/css`` )です。
 
@@ -219,7 +217,7 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 ``welcome.jpg`` 画像の追加は、単純に ``welcome.jpg`` という名称のファイルをFront Pageへ追加することで行います。また、 ``/usr/share/localwiki/static/img`` (あるいは手動インストールの場合 ``env/share/locawiki/static/img`` )へ、 `80_trans_white_bg.png <https://dentonwiki.org/static/img/80_trans_white_bg.png>`_ をコピーします。
 
-4. こうして作成した ``denton.css`` を、全てのページのHTMLファイルから参照させます。:ref: `例 1 <example1>` で行った操作を参考にして localwikiのコードディレクトリへ移動し、 ``sites/base.html`` をグローバルテンプレートディレクトリへコピーします。 ::
+4. こうして作成した ``denton.css`` を、全てのページのHTMLファイルから参照させます。 :ref: `例 1 <example1>` で行った操作を参考にして localwikiのコードディレクトリへ移動し、 ``sites/base.html`` をグローバルテンプレートディレクトリへコピーします。 ::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/sapling/templates/site
@@ -253,17 +251,17 @@ DentonWikiではこの機能を、表を1つ作成し、カスタマイズした
 
 カスタマイズに慣れてきたら、完全に新しいテーマを自作することも可能です。以下に方法を示します。:
 
-1. localwikiのコードディレクトリへ移動し、:ref: `例 1 <example1>` で行った操作を参考にして localwikiのコードディレクトリへ移動して、 ``sapling`` テーマを、自身のグローバルテンプレートディレクトリの ``theme`` へコピーします。 ::
+1. localwikiのコードディレクトリへ移動し、 :ref: `例 1 <example1>` で行った操作を参考にして Localwikiのコードディレクトリへ移動して、 ``sapling`` テーマを、自身のグローバルテンプレートディレクトリの ``theme`` へコピーします。 ::
 
     $ cd /path/to/localwiki/code/directory
     $ cd themes/
     $ cp -r sapling /usr/share/localwiki/themes/nameofyourtheme
 
-.. 注意点 :: localwiki-0.12-beta-12 では、``themes`` ディレクトリが share/localwiki になります。もしディレクトリが存在しない場合は新しく作成してください。
+.. note:: localwiki-0.12-beta-12 では、``themes`` ディレクトリが share/localwiki になります。もしディレクトリが存在しない場合は新しく作成してください。
 
 次に、``/usr/share/localwiki/conf/localsettings.py`` ファイルを編集し、``SITE_THEME`` の値を ``sapling`` から ``nameofyourtheme`` (自分の好きな名称) に変更します。
 
-完了したら、以下のコマンドを実行します。:
+完了したら、以下のコマンドを実行します。 :
 
     localwiki-manage collectstatic
 

@@ -27,7 +27,7 @@ Localwikiを手動でインストールした場合、 wsgiテンプレートフ
   mkdir deploy
   cp install_config/localwiki_virtualenv.wsgi.template deploy/localwiki.wsgi
 
-``localwiki.wsgi``を開き、Localwikiのインストール先を絶対パスで``VIRTUAL_ENV_PATH``に指定してください。
+``localwiki.wsgi`` を開き、Localwikiのインストール先を絶対パスで ``VIRTUAL_ENV_PATH`` に指定してください。
 
 次に、Apacheの設定ファイルを作成します。以下がサンプルです。 ::
 

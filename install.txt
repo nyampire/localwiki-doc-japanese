@@ -28,7 +28,7 @@ Localwikiでは、Ubuntu 10.04 LTS以降のバージョンに対するビルト�
 
 詳細な手順はこのドキュメントの ``INSTALL`` ファイルに記述されています。以下の場所にも同梱されています。 ::
 
-.. literalinclude:: ./INSTALL
+.. literalinclude:: INSTALL
 
 
 追加情報
